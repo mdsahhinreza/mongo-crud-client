@@ -3,6 +3,7 @@ import "./App.css";
 import AddUser from "./components/AddUser";
 import Home from "./components/Home";
 import Layout from "./components/Layout";
+import Update from "./components/Update";
 
 function App() {
   const router = createBrowserRouter([
@@ -18,6 +19,12 @@ function App() {
         {
           path: "user/add",
           element: <AddUser></AddUser>,
+        },
+        {
+          path: "/update/:id",
+          loader: ({ params }) =>
+            fetch(`http://localhost:5000/users/${params.id}`),
+          element: <Update></Update>,
         },
       ],
     },

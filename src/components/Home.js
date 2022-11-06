@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Row, Table } from "react-bootstrap";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const Home = () => {
   const users = useLoaderData();
@@ -52,6 +52,11 @@ const Home = () => {
                     <td>{user.address}</td>
                     <td>{user.email}</td>
                     <td className="text-center">
+                      <Link to={`/update/${user._id}`}>
+                        <Button variant="primary" className="btn-sm me-2">
+                          Update
+                        </Button>
+                      </Link>
                       <Button
                         variant="danger"
                         className="btn-sm"
